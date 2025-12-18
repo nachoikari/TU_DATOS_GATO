@@ -62,19 +62,23 @@ private void createRows() {
     }
 }
 
-
-## Resultado de esta fase
+``` 
+ Resultado de esta fase
 
 Al finalizar, existe una cadena vertical de **size nodos**:
-
-head
-  |
- down
-  |
- down
-  |
- ...
-
+```
+head -> null
+| ^
+v |
+node -> null
+| ^
+v |
+node -> null
+| ^
+v |
+...
+null 
+```
 Cada uno de estos nodos representa el inicio de una fila de la matriz.
 
 --------------------------------------------------
