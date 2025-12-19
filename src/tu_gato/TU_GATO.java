@@ -14,7 +14,7 @@ public class TU_GATO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        List list = new List(4);
+        List list = new List(10);
         list.printMatrix();
     }
     

@@ -13,10 +13,14 @@ public class List {
         //Node up, Node down, Node left, Node right, char mark
         head = new Node(null,null,null,null,'7');
         this.size = pSize;
-        createRows();
-        createColumns();
+        //createRows();
+        //createColumns();
+        createMatrix();
     }
-
+    
+    /*
+        Opcion numero 1 para crear la lista
+    */
     private void createRows(){
         System.out.println("Creating rows");
         Node temp = head;
@@ -57,6 +61,33 @@ public class List {
             }
         }
     }
+    /*
+    Opcion numero dos para crear la lista
+    */
+    private void createMatrix(){
+        //Node up, Node down, Node left, Node right, char mark
+        Node prevRow = head;
+        for(int columns = 1; columns < size; columns++){
+            Node newNode = new Node(null, null, prevRow, null, '8');
+            prevRow.setRight(newNode);
+            prevRow = newNode;
+        }
+        prevRow = head;
+        for(int rows = 1; rows < size; rows++){
+            Node newRow = new Node(null, null, null, null, '7');
+            newRow.setUp(prevRow);
+            prevRow.setDown(newRow);
+            
+            Node auxPrev = prevRow.getRight();
+            Node auxNew = newRow;
+            for(int columns = 1; columns < size; columns++){
+                Node newNode = new Node(auxPrev, null, auxNew, null, '8');
+                auxNew.setRight(newNode);
+                auxNew = newNode;
+            }
+            prevRow = newRow;
+        }
+    }
     
     public void printMatrix() {
         Node row = head;
@@ -73,7 +104,7 @@ public class List {
             row = row.getDown();
         }
     }
-
+    
     public void printRows(){
         System.out.println("Printing rows");
         Node temp = head;
@@ -85,4 +116,7 @@ public class List {
         }
         System.out.println("Rows "+ counter);
     }
+    
+    
+    
 }
